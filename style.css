@@ -1,0 +1,271 @@
+/* --- Variables & Reset --- */
+:root {
+    --bg-dark: #0b0d17;
+    --bg-card: #15192b;
+    --primary: #00f3ff; /* Cyan Neon */
+    --secondary: #bc13fe; /* Purple Neon */
+    --text-light: #e0e6ed;
+    --text-gray: #a0aab5;
+    --font-head: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-head);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+h2 { font-size: 2.5rem; color: var(--primary); }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-light); }
+p { margin-bottom: 1rem; color: var(--text-gray); }
+
+/* --- Utilities --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.highlight { color: var(--primary); }
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-family: var(--font-head);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.divider {
+    height: 4px;
+    width: 60px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    margin: 1rem auto 3rem auto;
+}
+
+.section-header { text-align: center; }
+
+/* --- Navbar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(11, 13, 23, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary); }
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 10;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero h4 {
+    color: var(--secondary);
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Star Background Animation */
+.stars, .twinkling {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+    display: block;
+}
+.stars {
+    background: #000 url('http://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+    z-index: 0;
+}
+.twinkling {
+    background: transparent url('http://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+    opacity: 0.5;
+}
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+/* --- Feature Sections --- */
+.split-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.text-block, .card { flex: 1; min-width: 300px; }
+
+.feature-list { list-style: none; margin-top: 1rem; }
+.feature-list li { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.feature-list i { color: var(--primary); margin-right: 10px; }
+
+.card {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.highlight-card { border-color: var(--secondary); }
+.danger-card { border-color: #ff4d4d; } /* Red for problem */
+.success-card { border-color: #00ff88; } /* Green for solution */
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.dark-bg { background-color: #0f111a; }
+
+/* --- Tech Grid --- */
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tech-card {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.1);
+    border-color: var(--primary);
+}
+
+.icon-box {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+/* --- Vision Section --- */
+.vision-bg {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1352&q=80'); /* Placeholder Space Img */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat h3 { font-size: 3rem; color: var(--primary); margin: 0; }
+.stat p { color: #fff; font-weight: bold; }
+
+/* --- Footer --- */
+footer {
+    background: #05060a;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+.footer-logo {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .grid-2-col, .grid-3-col { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; }
+    .split-layout { flex-direction: column; }
+}

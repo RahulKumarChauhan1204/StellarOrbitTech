@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | StellarOrbitTech</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+
+    <div class="container">
+        <div class="card glass login-card fade-in visible">
+            <h2 class="highlight">Mission Control</h2>
+            <p>Please authenticate to access satellite uplink.</p>
+            
+            <form class="login-form" onsubmit="event.preventDefault(); alert('Access Granted. Redirecting to Homepage...'); window.location.href='index.html';">
+                <div class="input-group">
+                    <input type="email" placeholder="Operator ID (Email)" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Security Key" required>
+                </div>
+                <button type="submit" class="login-btn">INITIATE UPLINK</button>
+            </form>
+            
+            <p style="margin-top: 20px; font-size: 0.8rem;">
+                <a href="index.html" style="color: var(--text-dim); text-decoration: none;">&larr; Return to Public Site</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
